@@ -1,18 +1,24 @@
+	//6) Write a program to Copy given string into another string without using built-in function. (C)
+//Input:
 #include <stdio.h>
 
 void main() {
-    int num, original, reversed = 0, rem;
+    char source[100], destination[100];
+    int i = 0;
 
-    printf("Enter a number: ");
-    scanf("%d", &num);
-    original = num; 
-    while(num != 0) {
-        rem = num % 10;
-        reversed = reversed * 10 + rem;
-        num = num / 10;
+    printf("Enter a string: ");
+    fgets(source, sizeof(source), stdin);
+
+    while (source[i] != '\0' && source[i] != '\n') {
+        destination[i] = source[i];
+        i++;
     }
-    if(original == reversed)
-        printf("%d is a Palindrome number.\n", original);
-    else
-        printf("%d is NOT a Palindrome number.\n", original);
+    destination[i] = '\0';  
+
+    printf("Copied string: %s\n", destination);
 }
+
+// Output:
+// Enter a string: Dharmik
+// Copied string: Dharmik
+

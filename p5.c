@@ -1,18 +1,34 @@
 #include <stdio.h>
-#include <math.h>
 
 void main() {
-    int num, i, isPrime = 1;
-    printf("Enter a number: ");
-    scanf("%d", &num);
-    for(i = 2; i <= sqrt(num); i++) {
-        if(num % i == 0) {
-            isPrime = 0;
-            break;
+    int N, i;
+    int max, min;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &N);
+
+    int arr[N];
+
+    printf("Enter %d numbers:\n", N);
+    for(i = 0; i < N; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    max = arr[0];
+    min = arr[0];
+
+    for(i = 1; i < N; i++) {
+        if(arr[i] > max) {
+            max = arr[i];
+        }
+        if(arr[i] < min) {
+            min = arr[i];
         }
     }
-    if(isPrime)
-        printf("%d is a Prime number.\n", num);
-    else
-        printf("%d is NOT a Prime number.\n", num);
+
+    printf("Maximum number is: %d\n", max);
+    printf("Minimum number is: %d\n", min);
 }
+
+
+
